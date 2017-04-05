@@ -7,5 +7,5 @@ Vitual Dom
 Node.js
 ES6
 Component
-Event
+Event : onChange, onKeyPress, onClick, 
 State
