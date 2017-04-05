@@ -28,6 +28,12 @@ class App extends React.Component {
     }
   }
 
+  deleteList = (index) => {
+    const result = this.state.listItem;
+    result.splice(index, 1);
+    this.setState({listItem: result});
+  }
+
   render() {
     return (
       <div className="App">
@@ -56,14 +62,23 @@ class App extends React.Component {
 
         <aside className="menu">
           <ul className="menu-list">
-            {this.state.listItem.map(( value, index ) => {
-              return (
-                <li className="space-1" key={ index + value }>{ value }<span className="space-1">
-                  <button className="delete"></button></span>
-                </li>
-              )
-            })}
-            
+            {this
+              .state
+              .listItem
+              .map((value, index) => {
+                return (
+                  <li className="space-1" key={index + value}>{value}
+                    <span className="space-1">
+                      <button
+                        className="delete"
+                        onClick={this
+                        .deleteList
+                        .bind(this, index)}></button>
+                    </span>
+                  </li>
+                )
+              })}
+
           </ul>
         </aside>
 
